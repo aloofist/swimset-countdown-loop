@@ -36,7 +36,7 @@ function pauseCountdown() {
   countdownInterval = null;
 }
 
-startCountdown(); // Start the countdown automatically
+startCountdown();
 
 pauseBtn.addEventListener("click", function () {
   if (!countdownInterval) {
