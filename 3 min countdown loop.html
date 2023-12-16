@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 min loop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <a href="/index.html" id="home-btn" style="font-size: 40px;">
+        <i class="ri-home-3-line"></i>
+    </a>
+    <h1 id="countdown-el"></h1>
+    <div class="wrapper">
+        <button id="pause-btn">
+            <i class="ri-pause-circle-line"></i>
+        </button>
+        <a href="/3 min countdown loop.html">
+            <button id="reset-btn">
+                <i class="ri-refresh-line"></i>
+            </button>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<style>
+    /* <input type="checkbox" id="check">
+        <label for="check" style="font-size: 50px; padding: none;">
+            <i class="ri-pause-circle-line"></i>
+            <i class="ri-play-circle-line"></i>
+        </label> */
+
+    /* input {
+        display: none;
+    }
+
+    .ri-play-circle-line {
+        display: none;
+    }
+
+    #check:checked ~ label .ri-play-circle-line {
+        display: block;   
+    }
+
+    #check:checked ~ label .ri-pause-circle-line {
+        display: none;   
+    } */
+    .wrapper {
+        display: flex;
+        justify-content: space-around;
+        background-color: #eee;
+        border-radius: 1rem;
+    }
+
+    .ri-pause-circle-line, .ri-refresh-line, .ri-play-line {
+        font-size: 30px;
+    }
+
+</style>
+</html>
