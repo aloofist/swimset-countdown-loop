@@ -50,7 +50,7 @@ pauseBtn.addEventListener("click", function () {
 });
 
 resetBtn.addEventListener("click", () => {
-    time = startingMinutes * 60
+    time = startingMinutes * 60 + startingSeconds
     setTimeout(function () {
         countdownFinished = false;
         }, 1000);
