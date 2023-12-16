@@ -1,5 +1,6 @@
-const startingMinutes = 3;
-let time = startingMinutes * 60;
+const startingMinutes = 2;
+const startingSeconds = 10;
+let time = startingMinutes * 60 + startingSeconds;
 let countdownFinished = false;
 let countdownInterval;
 
