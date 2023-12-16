@@ -5,41 +5,53 @@ let countdownInterval;
 
 const countdownEl = document.getElementById("countdown-el");
 const pauseBtn = document.getElementById("pause-btn");
+const resetBtn = document.getElementById("reset-btn")
 
-setInterval(displayCountdown, 1000);
-
-function displayCountdown() { 
+function displayCountdown() {
+  if (!countdownFinished) {
     const minutes = Math.floor(time / 60);
-    let seconds = time % 60
+    let seconds = time % 60;
 
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    
+
     countdownEl.textContent = minutes + ":" + seconds;
     time--;
 
     if (time < 0) {
-        countdownFinished  = true;
-        time = startingMinutes * 60;
-        setTimeout(function () {
-            countdownFinished = false;
-        }, 1000);
+      countdownFinished = true;
+      time = startingMinutes * 60;
+      setTimeout(function () {
+        countdownFinished = false;
+      }, 1000);
     }
+  }
 }
 
-function pauseTimer() {
-    clearTimeout(countdownInterval);
+function startCountdown() {
+  countdownInterval = setInterval(displayCountdown, 1000);
 }
 
-function resumeTimer() {
-    countdownInterval = setInterval(displayCountdown, 1000);
+function pauseCountdown() {
+  clearInterval(countdownInterval);
+  countdownInterval = null;
 }
+
+startCountdown(); // Start the countdown automatically
 
 pauseBtn.addEventListener("click", function () {
-    if (countdownInterval) {
-        pauseTimer;
-        pauseBtn.innerHTML =  '<i class="ri-play-line"></i>';
-    } else {
-        resumeTimer();
-        pauseBtn.innerHTML = '<i class="ri-pause-circle-line"></i>';
-    }
+  if (!countdownInterval) {
+    pauseBtn.innerHTML = '<i class="ri-pause-circle-line"></i>';
+    startCountdown();
+  } else {
+    pauseBtn.innerHTML = '<i class="ri-play-line"></i>';
+    pauseCountdown();
+  }
+});
+
+resetBtn.addEventListener("click", () => {
+    time = startingMinutes * 60
+    setTimeout(function () {
+        countdownFinished = false;
+        }, 1000);
+    startCountdown();
 })
